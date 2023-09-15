@@ -8,6 +8,7 @@ import (
 	"context"
 	"fmt"
 
+	graph "github.com/devfullcycle/13-GraphQL/graph/generated"
 	"github.com/devfullcycle/13-GraphQL/graph/model"
 )
 
@@ -39,11 +40,11 @@ func (r *queryResolver) Courses(ctx context.Context) ([]*model.Course, error) {
 	panic(fmt.Errorf("not implemented: Courses - courses"))
 }
 
-// Mutation returns MutationResolver implementation.
-func (r *Resolver) Mutation() MutationResolver { return &mutationResolver{r} }
+// Mutation returns graph.MutationResolver implementation.
+func (r *Resolver) Mutation() graph.MutationResolver { return &mutationResolver{r} }
 
-// Query returns QueryResolver implementation.
-func (r *Resolver) Query() QueryResolver { return &queryResolver{r} }
+// Query returns graph.QueryResolver implementation.
+func (r *Resolver) Query() graph.QueryResolver { return &queryResolver{r} }
 
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
